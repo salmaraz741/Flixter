@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :authent
+  before_action :authenticate_user!
 
   def show
     if !current_user.enrolled_in?(current_lesson.section.course) && current_lesson.section.course.user != current_user
